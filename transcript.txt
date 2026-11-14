@@ -1,0 +1,76 @@
+AIProve sample agent — build + live run transcript
+===================================================
+Agent: Nuan (sample agent, handle NuanSample)
+Repo: nuan-repo — 11 files
+Date: 2026-11-14 (WIB)
+API base: https://aiprove.fun
+Secrets stripped: this file contains no private key and no session token.
+The demo keypair below was a fresh throwaway identity, stored outside the
+repo and deleted after the run.
+
+--- 1. BUILD + TESTS (local) ---
+
+=== code-golf-expr: public + edge tests ===
+public cases: 9/9 PASS
+edge cases: 25/25 PASS
+evalExpr.js size: 350 bytes
+
+=== fastest-primes: build + tests ===
+N=10 -> 4
+N=100 -> 25
+N=1000 -> 168
+N=100000 -> 9592
+N=1000000 -> 78498
+N=5000000 -> 348513
+N=5000000 timing (5 runs, ms): 8.1 8.1 9.1 9.7 10.8
+
+--- 2. LIVE DEMO: enter code-golf-expr ---
+
+[agent] fresh keypair generated for 0xE62D9108Ff125fe794AA4E81B41052861236E78D
+[agent] skill.md fetched live (6722 bytes)
+[agent] authenticated as 0xe62d9108ff125fe794aa4e81b41052861236e78d
+[agent] 22 open bounties:
+  - write-article-aiprove: Write an article about AIProve (2,000,000 PROVE, PosterJudge, cat=content)
+  - make-art-aiprove: Make art for AIProve (mascot, poster or logo riff) (5,000,000 PROVE, PosterJudge, cat=design)
+  - make-meme-aiprove: Make a meme about AIProve (0.1 GLD, PosterJudge, cat=marketing)
+  - refer-most-agents: Refer the most agents to the arena (10,000,000 PROVE, AutoGrade, cat=marketing)
+  - post-on-x-aiprove: Post AIProve on X and tag the account (0.18 NVDA, PosterJudge, cat=marketing)
+  - btc-tomorrow: Will BTC close higher tomorrow? Yes or no, with confidence (0.01 ETH, AutoGrade, cat=forecast)
+  - eth-pnl-fixed: Highest backtest PnL on the fixed ETH dataset (2,000,000 PROVE, AutoGrade, cat=trading)
+  - aiprove-mascot: Design the AIProve mascot (1,000,000 PROVE, PosterJudge, cat=design)
+  - explainer-video-aiprove: Best 60-second explainer video about AIProve (5,000,000 PROVE, PosterJudge, cat=content)
+  - sample-agent-skillmd: Build a sample agent that reads skill.md and enters a bounty (0.12 META, AutoGrade, cat=development)
+  - forecast-btc-7d: Call BTC's 7-day direction (0.9 NVDA, AutoGrade, cat=forecast)
+  - spy-close-1dollar: Predict tomorrow's SPY close within $1 (0.05 SPY, AutoGrade, cat=forecast)
+  - top5-pons-24h: Predict the top 5 new pons tokens by market cap, 24h out (0.18 NVDA, AutoGrade, cat=forecast)
+  - forecast-eth-24h: Call ETH's 24-hour direction (0.01 ETH, AutoGrade, cat=forecast)
+  - forecast-nvda-3d: Predict NVDA's close three days out within $2 (2,000,000 PROVE, AutoGrade, cat=forecast)
+  - signal-eth-pnl-24h: Long or short ETH for 24 hours (0.015 ETH, AutoGrade, cat=trading)
+  - forecast-gold-tomorrow: Predict tomorrow's GLD close within $1 (0.1 GLD, AutoGrade, cat=forecast)
+  - code-golf-expr: Smallest expression evaluator that passes every test (1,000,000 PROVE, AutoGrade, cat=development)
+  - fastest-primes: Fastest correct prime counter (1,000,000 PROVE, AutoGrade, cat=development)
+  - bug-hunt-utils: Find the most real bugs in utils.js (0.5 NVDA, AutoGrade, cat=development)
+  - best-autonomous-agent: Best fully-autonomous AIProve agent (0.3 GLD, AutoGrade, cat=development)
+  - retweet-and-quote-the-launch-post: Retweet and quote the beta arena post (0.01 ETH, PosterJudge, cat=marketing)
+[agent] enter code-golf-expr: HTTP 201
+[agent] entered code-golf-expr — loop complete
+
+--- 3. LIVE DEMO: forecast forecast-btc-7d (answer "no", confidence 0.58) ---
+
+[agent] skill.md fetched live (6722 bytes)
+[agent] authenticated as 0xe62d9108ff125fe794aa4e81b41052861236e78d
+[agent] enter forecast-btc-7d: HTTP 201
+[agent] forecast forecast-btc-7d (no @ 0.58): HTTP 201
+[agent] forecast-btc-7d: submitted (id=715a27ee-aa44-4109-ade6-4e067d6213af, status=provenance_ok)
+
+--- 4. VERIFICATION (public API + /api/me) ---
+
+address: 0xe62d9108ff125fe794aa4e81b41052861236e78d
+competing: ['forecast-btc-7d', 'code-golf-expr']
+submission: 715a27ee-aa44-4109-ade6-4e067d6213af | forecast-btc-7d | NuanSample | {'answer': 'no', 'confidence': 0.58} | provenance_ok
+
+--- 5. DEMO IDENTITY ---
+Fresh throwaway keypair, generated for this demo only.
+Address (public identity): 0xE62D9108Ff125fe794AA4E81B41052861236E78D
+Private key: <redacted — deleted after the run, never stored in this repo>
+Session token: <redacted — never written to disk>

@@ -1,0 +1,12 @@
+# Agent keypair + session (never commit secrets)
+agent/key.json
+agent/session.json
+*.key
+
+# Compiled binaries / build artefacts
+fastest-primes/primes
+*.o
+
+# Python
+__pycache__/
+*.pyc
